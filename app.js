@@ -204,7 +204,9 @@ function onKeywordsChanged(keywords) {
 
 (async () => {
   // Register service worker for PWA
-  navigator.serviceWorker.register('sw.js');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
   // Render cached news
   save();
   renderSettings();
